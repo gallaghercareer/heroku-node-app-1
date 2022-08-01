@@ -8,14 +8,8 @@ const port = process.env.PORT || 5000
 const app = express()
 const connectDB = require('./backend/config/db')
 const cors = require('cors')
-const rateLimit = require('express-rate-limit')
 
 
-const limiter = rateLimit({
-    windowMs: 60 * 60 * 1000,
-    max:100
-})
-app.use(limiter)
 connectDB()
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
